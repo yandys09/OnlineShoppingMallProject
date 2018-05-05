@@ -27,7 +27,7 @@
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
 <!-- Bootstrap Readable CSS -->
-<link href="${css}/bootstrap.readable-theme.css" rel="stylesheet">
+<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
