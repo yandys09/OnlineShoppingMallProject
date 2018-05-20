@@ -21,7 +21,8 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.tway.shoppingmall" />
+	<context:component-scan base-package="com.tway.shoppingmall.controller" />
+	<context:component-scan base-package="com.tway.shoppingbackend.daoImpl" />
 	
 	
 	
