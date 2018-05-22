@@ -3,7 +3,12 @@ package com.tway.shoppingbackend.daoImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.tway.shoppingbackend.dao.CategoryDAO;
 import com.tway.shoppingbackend.dto.Category;
@@ -11,8 +16,11 @@ import com.tway.shoppingbackend.dto.Category;
 
 @Repository("categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO {
+	
+	@Autowired
+	private SessionFactory sessionFactory;
 
-	private static List<Category> categories = new ArrayList();
+	private static List<Category> categories = new ArrayList<>();
 
 	static {
 
@@ -62,6 +70,23 @@ public class CategoryDAOImpl implements CategoryDAO {
 		}
 		
 		return null;
+	}
+
+	@Override
+	@Transactional
+	public boolean add(Category category) {
+		
+		try {
+			
+			sessionFactory.getCurrentSession().persist(category);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			return false;
+		}
+		
+	
 	}
 
 }
