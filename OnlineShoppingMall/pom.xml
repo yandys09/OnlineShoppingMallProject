@@ -7,6 +7,9 @@
 	<name>OnlineShoppingMall</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
+	<url>http://maven.apache.org</url>
+	
+	
 	<properties>
 		<java-version>1.8</java-version>
 		<javaee-version>7.0</javaee-version>
@@ -14,6 +17,8 @@
 		<org.aspectj-version>1.8.11</org.aspectj-version>
 		<org.slf4j-version>1.7.25</org.slf4j-version>
 	</properties>
+	
+	
 	<dependencies>
 		<!--  Link backend project -->
 		<dependency>

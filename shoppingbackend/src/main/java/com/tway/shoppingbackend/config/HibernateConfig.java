@@ -59,7 +59,6 @@ public class HibernateConfig {
 	
 
 	//All the hibernate properties will be returned in this method
-	@Bean
 	private Properties getHibernateProperties() {
 		
 		Properties properties = new Properties();
