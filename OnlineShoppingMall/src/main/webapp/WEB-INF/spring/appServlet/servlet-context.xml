@@ -13,7 +13,7 @@
 	<annotation-driven />
 	
 	<context:component-scan base-package="com.tway.shoppingmall.controller" />
-	<context:component-scan base-package="com.tway.shoppingbackend.daoImpl" />
+	
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
@@ -24,7 +24,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	
+	<context:component-scan base-package="com.tway.shoppingbackend.daoImpl" />
 	
 	
 	
