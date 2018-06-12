@@ -67,6 +67,13 @@
 		<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 			<%@include file="listProducts.jsp"%>
 		</c:if>
+		
+		<!-- Load only when user clicks listProducts -->
+		<c:if test="${userClickShowProduct == true}">
+			<%@include file="singleProduct.jsp"%>
+		</c:if>
+		
+		
 		<!-- /.container -->
 	</div>
 	
@@ -77,7 +84,7 @@
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/jquery.js"></script>
 		
-	<%-- 	<script src="${js}/bootstrap.bundle.min.js"></script> --%>
+		<script src="${js}/bootstrap.bundle.min.js"></script>
 		
 		<script src="${js}/bootstrap.js"></script>
 		

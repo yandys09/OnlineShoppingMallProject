@@ -1,5 +1,7 @@
 package com.tway.shoppingmall.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -7,20 +9,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tway.shoppingbackend.dao.CategoryDAO;
+import com.tway.shoppingbackend.dao.ProductDAO;
 import com.tway.shoppingbackend.dto.Category;
+import com.tway.shoppingbackend.dto.Product;
 
 
 
 @Controller
 public class PageController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(PageController.class);
+	
 	@Autowired
 	private CategoryDAO categoryDAO;
+	
+	@Autowired
+	ProductDAO productDAO;
 		
 	@RequestMapping(value= {"/", "/home", "/index"} )
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("greeting", "Welcome to Spring Web MVC");
+		
+		logger.info("inside PageController index method - INFO");
+		logger.debug("inside PageController index method - DEBUG");
 		
 		mv.addObject("title", "ºÓ«Œ∏Ù »®");
 		mv.addObject("categories", categoryDAO.list());
@@ -83,6 +95,35 @@ public class PageController {
 		
 		return mv;
 	}
+	
+	
+	/**
+	 * Viewing a single product
+	 * 
+	 */
+	
+	@RequestMapping(value = "/show/{id}/product")
+	public ModelAndView showSingleProduct(@PathVariable int id) {
+		
+		ModelAndView mav = new ModelAndView("page");
+		
+		Product product = productDAO.get(id);
+		
+		//update the view count
+		product.setViews(product.getViews()+1);
+		productDAO.update(product);
+		//----------------------------------------------------------
+		
+		mav.addObject("title", product.getName());
+		mav.addObject("product", product);
+		
+		mav.addObject("userClickShowProduct", true);
+		
+		return mav;
+	}
+	
+	
+	
 	
 	
 /*	@RequestMapping(value = "/test")

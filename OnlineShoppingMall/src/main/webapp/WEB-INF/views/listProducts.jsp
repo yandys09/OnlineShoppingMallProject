@@ -52,7 +52,7 @@
 						<thead>
 							<tr>
 								<th></th>
-								<th>ID</th>
+								<th>Name</th>
 								<th>Brand</th>
 								<th>Price</th>
 								<th>Q'ty, Available</th>
@@ -66,7 +66,7 @@
 						<tfoot>
 							<tr>
 								<th></th>
-								<th>ID</th>
+								<th>Name</th>
 								<th>Brand</th>
 								<th>Price</th>
 								<th>Q'ty, Available</th>
