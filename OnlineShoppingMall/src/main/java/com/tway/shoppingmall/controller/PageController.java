@@ -12,6 +12,7 @@ import com.tway.shoppingbackend.dao.CategoryDAO;
 import com.tway.shoppingbackend.dao.ProductDAO;
 import com.tway.shoppingbackend.dto.Category;
 import com.tway.shoppingbackend.dto.Product;
+import com.tway.shoppingmall.exception.ProductNotFoundException;
 
 
 
@@ -85,6 +86,7 @@ public class PageController {
 		category = categoryDAO.get(id);
 		
 		
+		
 		mv.addObject("title", category.getName());
 		mv.addObject("categories", categoryDAO.list());
 		
@@ -103,11 +105,13 @@ public class PageController {
 	 */
 	
 	@RequestMapping(value = "/show/{id}/product")
-	public ModelAndView showSingleProduct(@PathVariable int id) {
+	public ModelAndView showSingleProduct(@PathVariable int id)  throws ProductNotFoundException {
 		
 		ModelAndView mav = new ModelAndView("page");
 		
 		Product product = productDAO.get(id);
+		
+		if(product == null)throw new ProductNotFoundException();
 		
 		//update the view count
 		product.setViews(product.getViews()+1);
