@@ -71,7 +71,7 @@ public class ManagementController {
 		//check if there are any errors
 		if(results.hasErrors()) {
 
-			model.addAttribute("userClickManageProduct", true);
+			model.addAttribute("userClickManageProducts", true);
 			model.addAttribute("title", "ManageProduct");
 			model.addAttribute("message", "Validation fails for adding the product!");
 				
@@ -88,9 +88,7 @@ public class ManagementController {
 			
 		}
 		
-		
-		
-		return "redirect:/manage/products?operation=product";
+		return "redirect:/manage/products?operation=products";
 		
 	}
 	

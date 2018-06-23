@@ -25,6 +25,8 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+	
 <!-- 	id must be multipartResolover -->
 	<beans:bean id="multipartResolve" class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
 	

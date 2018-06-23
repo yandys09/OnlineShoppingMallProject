@@ -61,7 +61,7 @@ public class ProductTestCase {
 	
 */	
 	
-	@Test
+/*	@Test
 	public void testListActiveProducts() {
 		
 		//list
@@ -87,6 +87,6 @@ public class ProductTestCase {
 		
 		
 	}
-	
+*/	
 	
 }

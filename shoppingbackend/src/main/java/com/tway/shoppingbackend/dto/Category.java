@@ -26,8 +26,6 @@ public class Category {
 	private boolean active = true;
 	
 	
-	
-	
 	public int getId() {
 		return id;
 	}

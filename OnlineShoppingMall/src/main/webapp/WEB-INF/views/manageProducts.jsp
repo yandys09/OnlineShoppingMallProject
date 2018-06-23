@@ -7,15 +7,13 @@
 		<div class="row">
 			<div class="col-xs-12">
 			
-				<%-- <div class="alert alert-success alert-dismissible">
-					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					${message}
+				<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert">&times;${message}</button>
 					
-				</div> --%>
-				
-				<div class="col-xs-12 col-md-offset-2 col-md-8">
-					<div class="alert alert-info fade in">${message}</div>
+					
 				</div>
+				
+			
 		
 		</div>
 		</div>
@@ -36,7 +34,6 @@
 				
 				<!-- Form Elements -->
 				<sf:form class="form-horizontal" modelAttribute="product" action="${contextRoot}/manage/products" enctype="multipart/form-data" method="POST"> 
-					
 					<div class="form-group">
 					
 						<label class="control-label col-md-4" for="name">Enter Product Name</label>					

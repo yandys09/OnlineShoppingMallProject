@@ -1,5 +1,6 @@
 package com.tway.shoppingbackend.dto;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -11,12 +12,20 @@ import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@Component
 @Entity
-public class Product {
+public class Product implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,7 +49,6 @@ public class Product {
 	private int quantity;
 	
 	@Column(name = "is_active")
-	@JsonIgnore
 	private boolean active;
 	
 	@Column(name = "category_id")
@@ -58,17 +66,6 @@ public class Product {
 	
 	@Transient
 	private MultipartFile file;
-	
-	
-	
-	public MultipartFile getFile() {
-		return file;
-	}
-
-
-	public void setFile(MultipartFile file) {
-		this.file = file;
-	}
 
 
 	//default constructor
@@ -151,13 +148,22 @@ public class Product {
 		this.views = views;
 	}
 	
+	public MultipartFile getFile() {
+		return file;
+	}
+
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	
 	
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", code=" + code + ", name=" + name + ", brand=" + brand + ", description="
 				+ description + ", unitPrice=" + unitPrice + ", quantity=" + quantity + ", active=" + active
 				+ ", categoryId=" + categoryId + ", supplierId=" + supplierId + ", purchases=" + purchases + ", views="
-				+ views + "]";
+				+ views + ", file=" + file + "]";
 	}
 	
 	

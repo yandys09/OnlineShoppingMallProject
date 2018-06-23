@@ -12,10 +12,11 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileUploadUtility {
 
 	private static final String ABS_PATH = "D:\\Developer\\gitProject\\OnlineShoppingMallProject\\OnlineShoppingMallProject\\OnlineShoppingMall\\src\\main\\webapp\\resources\\images\\";
-	private static String REAL_PATH = "";
+	private static String REAL_PATH = null;
 	
 	private static final Logger logger =  LoggerFactory.getLogger(FileUploadUtility.class);
-	public static void uploadFile(HttpServletRequest request, MultipartFile file, String code) {
+	
+	public static boolean uploadFile(HttpServletRequest request, MultipartFile file, String code) {
 		
 		//get the rela path
 		REAL_PATH = request.getSession().getServletContext().getRealPath("/resources/images/");
@@ -41,10 +42,11 @@ public class FileUploadUtility {
 			
 		}catch(IOException ex) {
 			
-			
+			ex.printStackTrace();
 			
 		}
 		
+		return true;
 		
 	}
 	
