@@ -17,7 +17,7 @@ public class CategoryTestCase {
 
 	private Category category;
 
-	@BeforeClass
+/*	@BeforeClass
 	public static void init() {
 
 		context = new AnnotationConfigApplicationContext();
@@ -26,7 +26,7 @@ public class CategoryTestCase {
 
 		categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
 
-	}
+	}*/
 	/*
 	 * 
 	 * @Test public void testAddCategory() {

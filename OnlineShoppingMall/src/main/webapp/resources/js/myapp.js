@@ -110,4 +110,18 @@ $(function(){
 		
 		
 	}
+	
+	//dismission the alert after 3 seconds
+	var $alert = $('.alert');
+	
+	if($alert.length){
+		setTimeout(function(){
+			$alert.fadeout('slow');
+		}, 3000)
+	}
+	
+	
+	
+	
+	
 });
