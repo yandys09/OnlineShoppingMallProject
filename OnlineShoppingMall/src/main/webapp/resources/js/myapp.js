@@ -1,15 +1,23 @@
 $(function(){
 	
 	switch(menu){
+	
 	case 'About US':
 		$('#about').addClass('active');
 		break;
+		
 	case 'Contact US':
 		$('#contact').addClass('active');
 		break;
+		
 	case 'All Products':
 		$('#listProducts').addclass('active');
 		break;
+		
+	case 'Manage Products':
+		$('#manageProducts').addclass('active');
+		break;
+		
 	default:
 		if (menu == "Home") break;
 		$('#listProducts').addClass('active');
