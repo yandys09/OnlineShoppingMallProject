@@ -2,7 +2,7 @@ package com.tway.shoppingmall.controller;
 
 import java.util.List;
 
-
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -21,6 +21,7 @@ import com.tway.shoppingbackend.dao.CategoryDAO;
 import com.tway.shoppingbackend.dao.ProductDAO;
 import com.tway.shoppingbackend.dto.Category;
 import com.tway.shoppingbackend.dto.Product;
+import com.tway.shoppingmall.util.FileUploadUtility;
 
 @Controller
 @RequestMapping("/manage")
@@ -64,14 +65,15 @@ public class ManagementController {
 	
 	//handing product subission
 	@RequestMapping(value="/products", method=RequestMethod.POST)
-	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model) {
+	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model,
+			HttpServletRequest request) {
 		
 		//check if there are any errors
 		if(results.hasErrors()) {
-			
-			model.addAttribute("message", "Validation fails for adding the product!");
+
 			model.addAttribute("userClickManageProduct", true);
 			model.addAttribute("title", "ManageProduct");
+			model.addAttribute("message", "Validation fails for adding the product!");
 				
 			return "page";
 		}
@@ -81,10 +83,16 @@ public class ManagementController {
 		//create a new product record;
 		productDao.add(mProduct);
 		
+		if(!mProduct.getFile().getOriginalFilename().equals("")) {
+			FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
+			
+		}
+		
+		
 		
 		return "redirect:/manage/products?operation=product";
+		
 	}
-	
 	
 	//returning categories for all the request mapping
 	@ModelAttribute("categories")
