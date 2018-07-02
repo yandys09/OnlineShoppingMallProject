@@ -8,9 +8,9 @@
 			<div class="col-xs-12">
 			
 				<div class="alert alert-success alert-dismissible">
-					<button type="button" class="close" data-dismiss="alert">&times;${message}</button>
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
 					
-					
+					${message}
 				</div>
 				
 			
@@ -133,7 +133,8 @@
 							<sf:hidden path="code" />
 							<sf:hidden path="supplierId" />
 							<sf:hidden path="purchases" />
-							<sf:hidden path="views" />
+							<sf:hidden path="active" />
+						
 							
 							
 							

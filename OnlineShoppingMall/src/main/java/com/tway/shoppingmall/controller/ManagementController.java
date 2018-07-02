@@ -27,14 +27,13 @@ import com.tway.shoppingmall.util.FileUploadUtility;
 @RequestMapping("/manage")
 public class ManagementController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(ManagementController.class);
+	
 	@Autowired
 	private CategoryDAO categoryDao;
 	
 	@Autowired
 	private ProductDAO productDao;
-	
-	
-	private static final Logger logger = LoggerFactory.getLogger(ManagementController.class);
 	
 	
 	@RequestMapping(value="/products", method=RequestMethod.GET)
@@ -72,7 +71,7 @@ public class ManagementController {
 		if(results.hasErrors()) {
 
 			model.addAttribute("userClickManageProducts", true);
-			model.addAttribute("title", "ManageProduct");
+			model.addAttribute("title", "ManageProducts");
 			model.addAttribute("message", "Validation fails for adding the product!");
 				
 			return "page";
@@ -88,7 +87,7 @@ public class ManagementController {
 			
 		}
 		
-		return "redirect:/manage/products?operation=products";
+		return "redirect:/manage/products?operation=product";
 		
 	}
 	
