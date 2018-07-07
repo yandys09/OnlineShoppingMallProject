@@ -28,7 +28,7 @@
 	<beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 	
 <!-- 	id must be multipartResolover -->
-	<beans:bean id="multipartResolve" class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
 	
 	
 </beans:beans>
