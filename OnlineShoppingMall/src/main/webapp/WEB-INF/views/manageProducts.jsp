@@ -1,27 +1,17 @@
-<%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
-
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 
 <div class="container">
-
+	
 	<c:if test="${not empty message}">
-		<div class="row">
 			<div class="col-xs-12">
 
 				<div class="alert alert-success alert-dismissible">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
-
 					${message}
 				</div>
-
-
-
 			</div>
-		</div>
-
 	</c:if>
-
-	<div class="row">
-
+<div class="row">
 		<!--  -->
 		<div class="com-md-offset-2 col-md-8">
 			<div class="panel panel-primary">
@@ -80,8 +70,7 @@
 
 						<div class="form-group">
 
-							<label class="control-label col-md-4" for="unitPrice">Enter
-								Unit Price : </label>
+							<label class="control-label col-md-4" for="unitPrice">Enter Unit Price : </label>
 
 							<div class="col-md-8">
 
@@ -93,8 +82,7 @@
 
 						<div class="form-group">
 
-							<label class="control-label col-md-4" for="quantity">Quantity
-								Availabel : </label>
+							<label class="control-label col-md-4" for="quantity">Quantity Availabel : </label>
 
 							<div class="col-md-8">
 
@@ -106,8 +94,7 @@
 
 						<div class="form-group">
 
-							<label class="control-label col-md-4" for="file">Select
-								an Image : </label>
+							<label class="control-label col-md-4" for="file">Select	an Image : </label>
 
 							<div class="col-md-8">
 
@@ -118,8 +105,7 @@
 
 						<div class="form-group">
 
-							<label class="control-label col-md-4" for="categoryId">Select
-								Category : </label>
+							<label class="control-label col-md-4" for="categoryId">Select Category : </label>
 
 							<div class="col-md-8">
 
@@ -129,8 +115,6 @@
 
 							</div>
 						</div>
-
-
 
 						<div class="form-group">
 
@@ -146,9 +130,6 @@
 								<sf:hidden path="supplierId" />
 								<sf:hidden path="purchases" />
 								<sf:hidden path="active" />
-
-
-
 
 							</div>
 						</div>
@@ -166,8 +147,8 @@
 			<hr/>
 		</div>
 		<div class="col-xs-12">
-			<div style="overflow: auto">
-<!-- 	Product table for Admin -->
+			<div style="overflow:auto">
+					<!-- 	Product table for Admin -->
 				<table id="adminProductsTable" class="table table-striped table-bordered">
 					<thead>
 						<tr>
@@ -181,57 +162,6 @@
 						</tr>
 					</thead>
 					
-					<tbody>
-						<tr>
-							<td>4</td>
-							<td>
-								<img class="adminPRoductTableImg" src="${contextRoot}/resources/images/PRDMNO123PQRX.jpg" alt="Macbook Pro">
-							</td>
-							<td>Macbook Pro</td>
-							<td>3</td>
-							<td>&#8361; 54000.00</td>
-							<td>
-								<!--  toogle swithc -->
-								<label class="switch">
-									<input type="checkbox" checked="checked" value="4" />
-									<div class="slider"></div>
-								</label>
-							
-							</td>
-							<td>
-								<a href="${contextRoot}/manage/4/product" class="btn btn-warning">
-									<span class="glyphicon glyphicon-pencil"></span>
-								</a>
-							
-							</td>
-						</tr>
-					
-					
-					<tr>
-							<td>4</td>
-							<td>
-								<img class="adminPRoductTableImg" src="${contextRoot}/resources/images/PRDMNO123PQRX.jpg" alt="Macbook Pro">
-							</td>
-							<td>Macbook Pro</td>
-							<td>3</td>
-							<td>&#8361; 54000.00</td>
-							<td>
-								<!--  toogle swithc -->
-								<label class="switch">
-									<input type="checkbox" value="4" />
-									<div class="slider"></div>
-								</label>
-							
-							</td>
-							<td>
-								<a href="${contextRoot}/manage/4/product" class="btn btn-warning">
-									<span class="glyphicon glyphicon-pencil"></span>
-								</a>
-							
-							</td>
-						</tr>
-					
-					</tbody>
 					
 					
 					<tfoot>

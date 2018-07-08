@@ -166,7 +166,7 @@ input:checked + .slider:before {
 	color: #ff0000;
 }
 
-.adminPRoductTableImg {
+.adminDataTableImg {
 	height:50px;
 	width: 50px;
 	
