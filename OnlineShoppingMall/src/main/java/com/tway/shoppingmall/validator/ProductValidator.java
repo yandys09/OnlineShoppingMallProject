@@ -20,12 +20,23 @@ public class ProductValidator implements Validator {
 		
 		//whether file has been seleted or not
 		if(product.getFile() == null || product.getFile().getOriginalFilename().equals("")) {
+			
 			errors.rejectValue("file", null, "Please select an image file to upload!");
 			
 			return;			
 		}
 		
-		
+		if(! (product.getFile().getContentType().equals("image/jpeg") || 
+			  product.getFile().getContentType().equals("image/png") ||
+			  product.getFile().getContentType().equals("image/gif") )) {	
+							
+			errors.rejectValue("file", null, "Please use only images file for upload!");
+			
+			return;
+			
+		}
+			
+			
 		
 
 	}

@@ -1,6 +1,6 @@
 $(function(){
 	
-	switch(menu){
+switch(menu){
 	
 	case 'About US':
 		$('#about').addClass('active');
@@ -128,7 +128,7 @@ $(function(){
 		}	
 	
 	//dismission the alert after 3 seconds
-	var $alert = $('.alert');
+  $alert = $('.alert');
 	
 	if($alert.length){
 		setTimeout(function(){
@@ -136,8 +136,44 @@ $(function(){
 		}, 3000);
 	}
 	
+	//---------------------------------------
+	
+	$('.switch input[type="checked"]').on('change', function(){
+			var checkbox = $(this);
+			var checked = checkbox.prop('checked');
+			var dMsg = (checked) ? 'You want to activate the product?' : 'You wnat to deactive the product?';
+			var value = checkbox.prop('value');
+			
+			bootbox.confirm({
+				size: 'medium',
+				title: 'Product Activation & Deactivation',
+				message: dMsg,
+				callback: function(confirmed){
+					
+					if(confirmed){
+						
+						console.log(value);
+						bootbox.alert({
+							size: 'medium',
+							title: 'Information',
+							message: 'You are going to perform operation on product' + value				
+							
+						});				
+						
+					}else{
+						checkbox.prop('checked', !checked);
+					
+					}
+			}
+				
+		});
+	
+	});
 	
 	
 	
 	
 });
+
+
+	

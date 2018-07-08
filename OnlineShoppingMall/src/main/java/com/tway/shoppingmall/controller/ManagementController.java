@@ -22,6 +22,7 @@ import com.tway.shoppingbackend.dao.ProductDAO;
 import com.tway.shoppingbackend.dto.Category;
 import com.tway.shoppingbackend.dto.Product;
 import com.tway.shoppingmall.util.FileUploadUtility;
+import com.tway.shoppingmall.validator.ProductValidator;
 
 @Controller
 @RequestMapping("/manage")
@@ -66,6 +67,8 @@ public class ManagementController {
 	@RequestMapping(value="/products", method=RequestMethod.POST)
 	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model,
 			HttpServletRequest request) {
+		
+		new ProductValidator().validate(mProduct, results);
 		
 		//check if there are any errors
 		if(results.hasErrors()) {

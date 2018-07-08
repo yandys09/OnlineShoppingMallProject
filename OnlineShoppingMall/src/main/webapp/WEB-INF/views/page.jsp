@@ -15,7 +15,8 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -26,7 +27,7 @@
 	window.contextRoot = '${contextRoot}'
 </script>
 <!-- Bootstrap core CSS -->
-<link href="${css}/bootstrap.css" rel="stylesheet">
+<link href="${css}/bootstrap.min.css" rel="stylesheet">
 
 <!-- Bootstrap Readable CSS -->
 <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
@@ -95,12 +96,16 @@
 		
 		<script src="${js}/bootstrap.js"></script>
 		
-		<script src="${js}/myapp.js"></script>
+		
 		
 		<!-- Datatable Plugin -->
 		<script src="${js}/dataTables.bootstrap.js"></script>
 		
 		<script src="${js}/jquery.dataTables.js"></script>
+		
+		<script src="${js}/bootbox.min.js"></script>
+		
+		<script src="${js}/myapp.js"></script>
 		
 		
 	</div>
