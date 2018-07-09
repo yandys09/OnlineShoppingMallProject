@@ -138,7 +138,7 @@ switch(menu){
 	
 	//---------------------------------------
 	
-	$('.switch input[type="checked"]').on('change', function(){
+	$('.switch input[type="checkbox"]').on('change', function(){
 			var checkbox = $(this);
 			var checked = checkbox.prop('checked');
 			var dMsg = (checked) ? 'You want to activate the product?' : 'You wnat to deactive the product?';

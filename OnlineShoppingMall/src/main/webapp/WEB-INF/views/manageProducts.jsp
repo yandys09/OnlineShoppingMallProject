@@ -141,7 +141,7 @@
 		</div>
 	</div>
 
-	<div class="row">
+<div class="row">
 		<div class="col-xs-12">
 			<h3>Availble Products</h3>
 			<hr/>
@@ -161,7 +161,7 @@
 							<th>Edit</th>
 						</tr>
 					</thead>
-					
+			
 					
 					
 					<tfoot>
