@@ -8,6 +8,7 @@
 				<div class="alert alert-success alert-dismissible">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
 					${message}
+					
 				</div>
 			</div>
 	</c:if>
@@ -149,7 +150,7 @@
 		<div class="col-xs-12">
 			<div style="overflow:auto">
 					<!-- 	Product table for Admin -->
-				<table id="adminProductsTable" class="table table-striped table-bordered">
+				<table id="adminProductsTable" class="table table-striped table-borderd">
 					<thead>
 						<tr>
 							<th>Id</th>
@@ -159,6 +160,7 @@
 							<th>Unit Price</th>
 							<th>Active</th>
 							<th>Edit</th>
+						
 						</tr>
 					</thead>
 			

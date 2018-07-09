@@ -183,7 +183,7 @@ var $adminProductsTable = $('#adminProductsTable');
 		             
 	$adminProductsTable.DataTable({
 		lengthMenu:[[10, 30, 50, -1], ['10 Records', '30 Records', '50 Records', 'All Records']],
-		pageLength: 30,
+		pageLength: 10,
 		ajax: {
 			url: jsonUrl,
 			dataSrc: ''
@@ -195,6 +195,7 @@ var $adminProductsTable = $('#adminProductsTable');
 				},
 				{
 					data: 'code',
+					bSortable: false,
 					mRender: function(data, type, row){
 						return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg" class="adminDataTableImg"/>';
 					}
