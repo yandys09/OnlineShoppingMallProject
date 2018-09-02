@@ -41,17 +41,19 @@ public class ManagementController {
 	public ModelAndView showManageProducts(@RequestParam(name="operation", required=false) String operation) {
 		
 		ModelAndView mav = new ModelAndView("page");
-		
-		mav.addObject("userClickManageProducts", true);
-		mav.addObject("title", "Manage Products");
-		
 		Product nProduct = new Product();
+		
+		mav.addObject("title", "Manage Products");
+		mav.addObject("userClickManageProducts", true);
+		
 		
 		//set few of the 
 		nProduct.setSupplierId(1);
 		nProduct.setActive(true);
 		
 		mav.addObject("product", nProduct);
+		
+		
 		
 		if(operation != null) {
 			if(operation.equals("product")) {

@@ -28,7 +28,6 @@ switch(menu){
 	
 	//code for jquery dataTable
 	
-	
 	var $table = $('#productListTable');
 	
 	//execute the below code only where we have this table
@@ -171,7 +170,6 @@ switch(menu){
 	});
 	
 	
-	
 //data table for admin -------------------------------------------------------------------------------------------------------------------------
 var $adminProductsTable = $('#adminProductsTable');
 	
@@ -180,7 +178,9 @@ var $adminProductsTable = $('#adminProductsTable');
 		console.log('Inside the  admin Table!');
 		
 		var jsonUrl =  window.contextRoot + '/json/data/admin/all/products';
-		             
+		        
+		console.log(jsonUrl);
+		
 	$adminProductsTable.DataTable({
 		lengthMenu:[[10, 30, 50, -1], ['10 Records', '30 Records', '50 Records', 'All Records']],
 		pageLength: 10,
@@ -192,21 +192,21 @@ var $adminProductsTable = $('#adminProductsTable');
 				{
 					data: 'id'
 					
-				},
+				},	
 				{
 					data: 'code',
 					bSortable: false,
 					mRender: function(data, type, row){
 						return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg" class="adminDataTableImg"/>';
 					}
-				},
+				},	
 				{
 					data: 'name'
 						
-				},
+				},	
 				{
 					data: 'brand'
-				},
+				},	
 				{
 					data: 'quantity',
 					mRender: function(data, type, row){
@@ -218,13 +218,13 @@ var $adminProductsTable = $('#adminProductsTable');
 						return data;
 						
 					}
-				},
+				},		
 				{
 					data: 'unitPrice',
 					mRender: function(data, type, row){
 						return '&#8361;'+ data
 					}
-				},
+				},	
 				{
 					data: 'active',
 					bSortable: false,
@@ -234,13 +234,12 @@ var $adminProductsTable = $('#adminProductsTable');
 						str += '<label class="switch">';
 						
 					if(data){
-						str +=	'<input type="checkbox" checked="checked" value="'+row.id+'" />';	
+						str +=	'<input type="checkbox" checked="checked" value="'+row.id+'" />';
 					}else{
-						str +=	'<input type="checkbox" value="'+row.id+'" />';	
+						str +=	'<input type="checkbox" value="'+row.id+'" />';
 					}
-									
-						
-						str += '<div class="slider"></div></label>';			
+										
+						str += '<div class="slider"></div></label>';
 						
 						return str;
 						
@@ -258,7 +257,6 @@ var $adminProductsTable = $('#adminProductsTable');
 						str += '<a href="${contextRoot}/manage/'+data+'/product" class="btn btn-warning">';
 						
 						str += '<span class="glyphicon glyphicon-pencil"></span></a>';
-						
 						
 						return str;
 						
