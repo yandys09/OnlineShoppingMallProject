@@ -43,7 +43,7 @@ public class Product implements Serializable {
 	private String description;
 	
 	@Column(name = "unit_price")
-	@Min(value=1, message="The Price cannot be less than 1!")
+	@Min(value=1, message="The Price cannot be less than !")
 	private double unitPrice;
 	
 	private int quantity;

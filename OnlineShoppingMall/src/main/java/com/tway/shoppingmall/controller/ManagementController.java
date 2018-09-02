@@ -12,9 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tway.shoppingbackend.dao.CategoryDAO;
@@ -34,19 +36,18 @@ public class ManagementController {
 	private CategoryDAO categoryDao;
 	
 	@Autowired
-	private ProductDAO productDao;
+	private ProductDAO productDAO;
 	
 	
 	@RequestMapping(value="/products", method=RequestMethod.GET)
 	public ModelAndView showManageProducts(@RequestParam(name="operation", required=false) String operation) {
 		
 		ModelAndView mav = new ModelAndView("page");
-		Product nProduct = new Product();
-		
+			
 		mav.addObject("title", "Manage Products");
 		mav.addObject("userClickManageProducts", true);
 		
-		
+		Product nProduct = new Product();
 		//set few of the 
 		nProduct.setSupplierId(1);
 		nProduct.setActive(true);
@@ -85,7 +86,7 @@ public class ManagementController {
 		logger.info(mProduct.toString());
 		
 		//create a new product record;
-		productDao.add(mProduct);
+		productDAO.add(mProduct);
 		
 		if(!mProduct.getFile().getOriginalFilename().equals("")) {
 			FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
@@ -94,6 +95,22 @@ public class ManagementController {
 		
 		return "redirect:/manage/products?operation=product";
 		
+	}
+	
+	@RequestMapping(value = "/products/{id}/activation", method=RequestMethod.POST)
+	@ResponseBody                         
+	public String handleProductActivation(@PathVariable int id) {
+		
+		Product product = productDAO.get(id);
+		boolean isActive = product.isActive();
+		//activatin an deactivating based on th value of active field
+		product.setActive(!isActive);
+		
+		//updating the product
+		productDAO.update(product);
+		
+		return (isActive) ? "You have succesfuly deactivated the product width id " + product.getId() : 
+			"You have succesfuly activated the product width id " + product.getId();
 	}
 	
 	//returning categories for all the request mapping

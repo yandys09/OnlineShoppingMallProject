@@ -132,7 +132,7 @@ switch(menu){
 	if($alert.length){
 		setTimeout(function(){
 			$alert.fadeOut('slow');
-		}, 3000);
+		}, 3000)
 	}
 	
 	//---------------------------------------
@@ -263,7 +263,47 @@ var $adminProductsTable = $('#adminProductsTable');
 					}
 				}
 			
-				]
+				],
+				
+				initComplete: function(){
+					
+					var api = this.api();
+					api.$('.switch input[type="checkbox"]').on('change', function(){
+						var checkbox = $(this);
+						var checked = checkbox.prop('checked');
+						var dMsg = (checked) ? 'You want to activate the product?' : 'You wnat to deactive the product?';
+						var value = checkbox.prop('value');
+						
+						bootbox.confirm({
+							size: 'medium',
+							title: 'Product Activation & Deactivation',
+							message: dMsg,
+							callback: function(confirmed){
+								if(confirmed){				
+									console.log(value);
+						
+									var activationUrl = window.contextRoot + '/manage/products/' + value + '/activation';
+									
+								$.post(activationUrl , function(data){
+									bootbox.alert({
+										size: 'medium',
+										title: 'Information',
+										message: data				
+										
+									});		
+								});
+														
+								}else{
+									checkbox.prop('checked', !checked);
+								
+								}
+						}
+							
+					});
+				
+				});
+					
+				}
 	});
 	
 }

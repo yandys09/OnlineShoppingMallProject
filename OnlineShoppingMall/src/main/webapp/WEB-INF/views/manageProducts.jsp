@@ -1,16 +1,19 @@
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <div class="container">
- <div class="row">
+
   
   <c:if test="${not empty message}">    
-   <div class="col-xs-12">   
-  <div class="alert alert-success alert-dismissible">   
-   <button type="button" class="close" data-dismiss="alert">&times;</button>   
-   ${message}  
-  </div>      
-   </div> 
+   <div class="row">
+   		<div class="col-xs-12">   
+  			<div class="alert alert-success alert-dismissible">   
+   				<button type="button" class="close" data-dismiss="alert">&times;</button>   
+  					 ${message}  
+ 			 </div>      
+   		</div>
+   	</div>
  </c:if>
- 
+ 	
+ <div class="row">
   <div class="col-md-offset-2 col-md-8">
    <div class="panel panel-primary">
     <div class="panel-heading">
@@ -80,6 +83,7 @@
          itemLabel="name"
          itemValue="id"
         />
+   <%--      
         <c:if test="${product.id == 0}">
         	<div class="text-right">
 	        	<br/>
@@ -87,12 +91,12 @@
         	</div>
         </c:if>
         
+   --%>      
        </div>
       </div> 
            
       <div class="form-group">
        <div class="col-md-offset-4 col-md-8">
-        <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary"/>
         <!-- Hidden fields for products -->
         <sf:hidden path="id"/>
         <sf:hidden path="code"/>
@@ -100,6 +104,8 @@
         <sf:hidden path="active"/>
         <sf:hidden path="purchases"/>
         <sf:hidden path="views"/>
+        <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary"/>
+       
        </div>
       </div>
        
@@ -110,12 +116,13 @@
  </div>
 
 
- <div class="row">
+   <div class="row">
   <div class="col-xs-12">
    <h3>Available Products</h3>
-   <hr/>
-  </div>
   
+  </div>
+   <hr/>
+
   <div class="col-xs-12">
   	<div class="container-fluid">
   		

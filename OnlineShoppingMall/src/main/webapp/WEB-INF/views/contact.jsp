@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container bg-light">
 	<div class="row">
 		<h1>Contact US</h1>
 		<hr />
