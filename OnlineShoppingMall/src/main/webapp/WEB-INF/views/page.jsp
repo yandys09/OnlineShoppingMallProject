@@ -88,6 +88,7 @@
 		<%@include file="./shared/footer.jsp"%>
 	</div>
 		<!-- Bootstrap core JavaScript -->
+		<script src="${js}/myapp.js"></script>
 		<script src="${js}/jquery.js"></script>
 		
 		<script src="${js}/jquery.validate.js"></script>
@@ -105,7 +106,7 @@
 		
 		<script src="${js}/bootbox.min.js"></script>
 		
-		<script src="${js}/myapp.js"></script>
+		
 	
 		
 		
