@@ -6,7 +6,7 @@ import com.tway.shoppingbackend.dto.User;
 
 public interface UserDAO {
 	
-	boolean adduser(User user);
+	boolean addUser(User user);
 	
 	boolean addAddress(Address address);
 	
